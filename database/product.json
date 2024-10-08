@@ -1,0 +1,34 @@
+[
+    {
+        "productId": 1,
+        "productName": "Jessamine Estes",
+        "price": "530",
+        "description": "Quibusdam est quis",
+        "sale": "false",
+        "productImage": "..\/media\/one-punch-man-chelovek-v-odin.jpg"
+    },
+    {
+        "productId": 2,
+        "productName": "Odysseus Avila",
+        "price": "753",
+        "description": "Sunt incidunt dolor",
+        "sale": "true",
+        "productImage": "..\/media\/319296193_3481455268753030_6582111706718920805_n.jpg"
+    },
+    {
+        "productId": 3,
+        "productName": "Moana Rowland",
+        "price": "707",
+        "description": "In reprehenderit exp",
+        "sale": "true",
+        "productImage": "..\/media\/one-punch-man-chelovek-v-odin.jpg"
+    },
+    {
+        "productId": 4,
+        "productName": "Aurora Clay",
+        "price": "707",
+        "description": "Accusantium a soluta",
+        "sale": "false",
+        "productImage": "..\/media\/one-punch-man-chelovek-v-odin.jpg"
+    }
+]
