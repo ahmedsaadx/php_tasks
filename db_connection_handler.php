@@ -3,6 +3,9 @@ require 'vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
+if(!file_exists(__DIR__ . '/.env') ){
+	die(".env file don't exists . please create new env ");
+}else{
 // Load .env file
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -20,4 +23,4 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
 
-
+}

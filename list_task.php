@@ -1,8 +1,7 @@
 <?php
 session_start();
-require_once('inc/header.php');
 require_once('db_connection_handler.php');
-
+require_once('inc/header.php');
 $query = "SELECT * FROM tasks";
 $result = mysqli_query($conn, $query);
 ?>
@@ -34,8 +33,6 @@ $result = mysqli_query($conn, $query);
 if (isset($_SESSION['success_delete_task'])){
     unset($_SESSION['success_delete_task']);
 }
-?>
-
 
 
 
