@@ -1,0 +1,14 @@
+{
+    "name": "ahmedsaadx/todoapp",
+    "description": "small todo app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ahmedsaadx",
+            "email": "ahmeddsaadd188@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
