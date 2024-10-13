@@ -18,7 +18,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 
     if (mysqli_stmt_execute($stmt)) {
-        $_SESSION['success'] ['task'] = "Task deleted successfully.";
+        $_SESSION['success_delete_task']  = "Task deleted successfully.";
     } else {
         $_SESSION['errors']['db_error'] = "Failed to delete task: " . mysqli_error($conn);
     }

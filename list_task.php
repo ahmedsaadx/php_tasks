@@ -8,9 +8,9 @@ $result = mysqli_query($conn, $query);
 ?>
 
 <div class="container mt-4">
-    <?php if(isset($_SESSION['success'] ['task'])):?>
+    <?php if(isset($_SESSION['success_delete_task'])):?>
         <div class="alert alert-success">
-          <?php echo $_SESSION['success']['task']; ?>
+          <?php echo $_SESSION['success_delete_task']; ?>
         </div>
      <?php endif?>
   <div class="row">
@@ -31,8 +31,8 @@ $result = mysqli_query($conn, $query);
   </div>
 </div>
 <?php
-if (isset($_SESSION['success']['task'])){
-    unset($_SESSION['success']['task']);
+if (isset($_SESSION['success_delete_task'])){
+    unset($_SESSION['success_delete_task']);
 }
 ?>
 
