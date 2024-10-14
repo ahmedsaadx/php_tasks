@@ -24,28 +24,36 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $task_description = $_POST['task_description'];
         $due_date = $_POST['due_date'];
 
-        // Update query with placeholders
-        $update_query = "UPDATE tasks SET name = ?, description = ?, due_date = ? WHERE id = ?";
-        $stmt = mysqli_prepare($conn, $update_query);
-
-        // Bind the parameters (s = string, i = integer)
-        mysqli_stmt_bind_param($stmt, 'sssi', $task_name, $task_description, $due_date, $task_id);
-
-        // Execute the statement
-        if (mysqli_stmt_execute($stmt)) {
-            // Success, redirect to task list
-            $_SESSION["update_task"] = "Task updated successfully";
-            header("Location: list_task.php");
-            exit();
+        // Validate due date: check if it's in the future
+        $current_date = date('Y-m-d');
+        if ($due_date <= $current_date) {
+            echo "<div class='alert alert-danger'>Due date must be after $current_date.</div>";
         } else {
-            echo "Error updating task: " . mysqli_error($conn);
+            // Update query with placeholders including the updated_at field
+            $update_query = "UPDATE tasks SET name = ?, description = ?, due_date = ?, updated_at = ? WHERE id = ?";
+            $stmt = mysqli_prepare($conn, $update_query);
+
+            // Get current timestamp
+            $updated_at = date('Y-m-d H:i:s'); // Current timestamp
+
+            // Bind the parameters (s = string, i = integer)
+            mysqli_stmt_bind_param($stmt, 'ssssi', $task_name, $task_description, $due_date, $updated_at, $task_id);
+
+            // Execute the statement
+            if (mysqli_stmt_execute($stmt)) {
+                // Success, redirect to task list
+                $_SESSION["update_task"] = "Task updated successfully .";
+                header("Location: list_task.php");
+                exit();
+            } else {
+                echo "Error updating task: " . mysqli_error($conn);
+            }
         }
     }
 } else {
     die("Invalid Task ID.");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
